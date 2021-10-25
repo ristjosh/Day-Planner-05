@@ -2,9 +2,9 @@ var saveButton = $('.saveBtn');
 var hourEl = $('.hour');
 
 
-//Detects when the page is ready for the javascript
+//Javascript ready
 $(document).ready(function() {
-    //Current date displayed at top
+    //Current date
     var currentDate = moment().format('dddd MMM Do, YYYY');
     $('#currentDay').text(currentDate);
 
@@ -14,8 +14,6 @@ $(document).ready(function() {
         var id = $(this).attr('id');
         var getId = localStorage.getItem(id);
         console.log(getId);
-        //this is the .time-block class
-        //grab t
         $(this).children('.schedule').val(getId);
 
         if (id > currentHour) {
@@ -30,10 +28,8 @@ $(document).ready(function() {
     })
 
     $(".saveBtn").click(function(){
-        //this is the .saveBtn class
-        //Get the value of the sibling of the schedule class and make it the value of value
         var value = $(this).siblings('.schedule').val();
-        //grabbed the id from the parent element
+        //Grabbed the id 
         var parentValue = $(this).parent().attr('id');
         //Saved to localStorage
         localStorage.setItem(parentValue, value)
